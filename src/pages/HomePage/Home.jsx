@@ -10,8 +10,8 @@ const HomePage = () => {
     const handleDownload = () => {
 
         const link = document.createElement('a');
-        link.href = 'https://docs.google.com/document/d/1N8kddBzP-P_m8asiizxUNa2NLNM9kc6i2c5vaU7Iob8/edit?usp=sharing'; // Replace with actual path
-        link.download = 'resume.pdf';
+        link.href = 'https://drive.google.com/file/d/1rOCvck8KET01mkuj9Jdvccuz_SU9u8d6/view?usp=sharing'; // Replace with actual path
+        link.download = 'Fri Sharon.pdf';
         link.click();
     };
     return (
