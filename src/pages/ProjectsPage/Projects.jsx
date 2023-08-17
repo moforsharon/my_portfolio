@@ -33,8 +33,8 @@ const Projects = () => {
     ];
 
     return (
-        <div>
-           <div>
+        <div className='flex justify-around section' id='projec'>
+           <div className=''>
                 <h1 className="text-3xl text-secondary-color text-center font-semibold mt-20">
                     Recent Projects🎉
                 </h1>

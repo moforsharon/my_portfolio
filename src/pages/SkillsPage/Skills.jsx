@@ -1,6 +1,3 @@
-import Footer from "../../components/Footer/Footer"
-import Navbar from "../../components/NavBar/Navbar"
-
 function Skills() {
     return (
         <div>
@@ -83,6 +80,9 @@ function Skills() {
                         />
                         {/* <p className="text-white mt-2">Tailwind CSS</p> */}
                     </div>
+                </div>
+                <div className="flex justify-around">
+                    <p className="w-5/6 text-justify">I've used these tools to make different projects. One of them is a mobile app for controlling home appliances made with Flutter and Firebase's real-time database. I've also created several web apps using React with Redux for global state management, and for the backend enpoints, I used Node.js and Express.js, and stored data with MongoDB. You can check out these projects and more on my <a href="https://github.com/moforsharon " className="text-blue-500">GitHub</a> page.</p>
                 </div>
             </div>
             {/* <Footer /> */}

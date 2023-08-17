@@ -24,7 +24,7 @@ const ContactMe = () => {
     if (state.succeeded) {
         return (
             <div className='flex justify-around '>
-                <p className='text-green-500 text-xl mt-2 mb-4'>Message sent successfully!</p>
+                <p className='text-green-500 text-lg mt-2 mb-4'>Message sent successfully!</p>
             </div>
 
         );

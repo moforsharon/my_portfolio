@@ -10,11 +10,40 @@ import ContactMe from '../ContactPage/Contact';
 import Footer from '../../components/Footer/Footer';
 import "./Home.css"
 import ScrollToTopButton from '../../components/ScrollToTopBtn/Scroll';
+import { AiOutlineArrowRight } from "react-icons/ai"
+import ProjectCard from '../../components/ProjectCard/ProjectCard';
 
 
 const HomePage = () => {
     const [showLinks, setShowLinks] = useState(false);
-    const [activeSection, setActiveSection] = useState(null); // Track active section
+    const [activeSection, setActiveSection] = useState(null);
+
+    const projects = [
+        {
+            imageUrl: require('../../images/recipe.png'),
+            title: 'Recipe Finder',
+            desc: "This is a web app built with React + redux for getting recipes to a wide range of meals. Check it out!",
+            technologies: ['React', 'Redux', 'CSS', 'Tailwindcss'],
+            liveDemoLink: 'https://recipe-finder-tau.vercel.app/',
+            repositoryLink: 'https://github.com/moforsharon/recipe-finder'
+        },
+        {
+            imageUrl: require('../../images/shortly.png'),
+            title: 'Shortly',
+            desc: "Shortly is a simple link shortening application",
+            technologies: ['Angular', 'CSS', 'TypeScript'],
+            liveDemoLink: 'http://shortl-y.infinityfreeapp.com/?i=1',
+            repositoryLink: 'https://github.com/moforsharon/Shortly/tree/master'
+        },
+        {
+            imageUrl: require('../../images/bb.png'),
+            title: 'Business Boost',
+            desc: "Business boost is a web platform designed for linking small business owners to investors",
+            technologies: ['React', 'Tailwind', 'Node', 'Express', 'MongoDB'],
+            liveDemoLink: 'https://businessboost.netlify.app/',
+            repositoryLink: 'https://github.com/moforsharon/BusinessBoost_frontend'
+        }
+    ];
 
     const toggleLinks = () => {
         setShowLinks(!showLinks);
@@ -23,9 +52,15 @@ const HomePage = () => {
     const scrollToSection = (sectionId) => {
         const section = document.getElementById(sectionId);
         if (section) {
-            section.scrollIntoView({ behavior: 'smooth' });
+            const offset = section.offsetTop - 50;
+            window.scrollTo({
+                top: offset,
+                behavior: 'smooth',
+            });
         }
     };
+
+
 
     useEffect(() => {
         const sections = document.querySelectorAll('.section');
@@ -38,8 +73,10 @@ const HomePage = () => {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
-                    setActiveSection(entry.target.id); // Update active section
-                    entry.target.classList.add('fade-in');
+                    setActiveSection(entry.target.id);
+                    entry.target.classList.add('slide-up');
+                } else {
+                    entry.target.classList.remove('slide-up');
                 }
             });
         }, options);
@@ -47,11 +84,17 @@ const HomePage = () => {
         sections.forEach((section) => {
             observer.observe(section);
         });
-
+       
         return () => {
             observer.disconnect();
         };
     }, []);
+
+    const getSectionOffset = (sectionId) => {
+        const section = document.getElementById(sectionId);
+        return section ? section.offsetTop : 0;
+    };
+
 
     return (
         <div>
@@ -59,14 +102,10 @@ const HomePage = () => {
                 <div className="container  flex justify-between items-center p-4">
                     <div className="text-xl font-bold text-white">Sha🎉</div>
                     <div className="hidden md:flex space-x-4 text-sm text-white relative left-20">
-                        <a href="#about" className={`nav-link hover:text-secondary-color ${activeSection === 'about' ? 'active' : ''
-                            }`} onClick={() => scrollToSection('about')}>About</a>
-                        <a href="#skills" className={`nav-link hover:text-secondary-color ${activeSection === 'skills' ? 'active' : ''
-                            }`} onClick={() => scrollToSection('skills')}>Skills</a>
-                        <a href="#projects" className={`nav-link hover:text-secondary-color ${activeSection === 'projec' ? 'active' : ''
-                            }`} onClick={() => scrollToSection('projec')}>Projects</a>
-                        <a href="#contact" className={`nav-link hover:text-secondary-color ${activeSection === 'contact' ? 'active' : ''
-                            }`} onClick={() => scrollToSection('contact')}>Contact</a>
+                        <a href="#aboutme" className={`nav-link hover:text-secondary-color ${activeSection === 'about' ? 'active' : ''}`} onClick={() => scrollToSection('about')}>About</a>
+                        <a href="#skill" className={`nav-link hover:text-secondary-color ${activeSection === 'skills' ? 'active' : ''}`} onClick={() => scrollToSection('skills')}>Skills</a>
+                        <a href="#projects" className={`nav-link hover:text-secondary-color ${activeSection === 'projec' ? 'active' : ''}`} onClick={() => scrollToSection('projec')}>Projects</a>
+                        <a href="#contacts" className={`nav-link hover:text-secondary-color ${activeSection === 'contact' ? 'active' : ''}`} onClick={() => scrollToSection('contact')}>Contact</a>
                     </div>
                     <div className="hidden md:flex space-x-5 text-white relative lg:left-10 mr-5">
                         <a href="https://twitter.com/sharon_mofor"> <FaTwitter className="social-icon" /></a>
@@ -84,10 +123,10 @@ const HomePage = () => {
                 </div>
                 {showLinks && (
                     <div className="md:hidden border-t border-secondary-color text-white bg-primary-color">
-                        <a href="#about" className="block py-2 ml-4 nav-link"  onClick={() => scrollToSection('about')}>About</a>
-                        <a href="#skills" className="block py-2 ml-4 nav-link" onClick={() => scrollToSection('skills')}>Skills</a>
+                        <a href="#aboutme" className="block py-2 ml-4 nav-link"  onClick={() => scrollToSection('about')}>About</a>
+                        <a href="#skill" className="block py-2 ml-4 nav-link" onClick={() => scrollToSection('skills')}>Skills</a>
                         <a href="#projects" className="block py-2 ml-4 nav-link" onClick={() => scrollToSection('projec')}>Projects</a>
-                        <a href="#contact" className="block py-2 ml-4 nav-link" onClick={() => scrollToSection('contact')}>Contact</a>
+                        <a href="#contacts" className="block py-2 ml-4 nav-link" onClick={() => scrollToSection('contact')}>Contact</a>
                     </div>
                 )}
             </nav>
@@ -133,7 +172,33 @@ const HomePage = () => {
                 <Skills />
             </div>
             <div id='projec' className='section'>
-                <Projects />
+                <div className='section flex justify-around'>
+                    <div className='section'>
+                        <h1 className="text-3xl text-secondary-color text-center font-semibold mt-20">
+                            Recent Projects🎉
+                        </h1>
+                        <p className=" text-center mt-2 p-2">
+                            Ever since I began my programming journey in 2020, <br />I have been dedicatedly involved in a diverse array of projects.
+                        </p>
+                        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-8 mt-20 mb-10 ml-0 mr-0 md:ml-20 md:mr-20 section">
+                            {projects.map((project, index) => (
+                                <ProjectCard key={index} {...project} />
+                            ))}
+                        </div>
+                        <div className='flex justify-around'>
+                            <a
+                                href="https://github.com/moforsharon?tab=repositories"
+                                className="text-white font-2xl"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <button className="bg-primary-color text-white px-4 py-2 rounded-md flex items-center mt-2 mb-4">
+                                    See More Projects <AiOutlineArrowRight className="ml-1" />
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div id='contact' className='section'>
                 <ContactMe />
