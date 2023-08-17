@@ -117,7 +117,7 @@ const HomePage = () => {
                         <a href="https://github.com/moforsharon"><FaGithub className="social-icon" /></a>
                         <a href="https://www.linkedin.com/in/sharon-mofor-183a71217/"><FaLinkedin className="social-icon" /></a>
                         <button onClick={toggleLinks} className="text-xl text-white">
-                            ☰
+                            {showLinks ? '✕' : '☰'}
                         </button>
                     </div>
                 </div>
