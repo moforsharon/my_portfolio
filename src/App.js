@@ -8,17 +8,11 @@ import Projects from "./pages/ProjectsPage/Projects";
 
 function App() {
   return (
-
-      <Router>
-        <Routes>
-          <Route exact path="/" element={<HomePage />} />
-          <Route exact path="/about" element={<About />} />
-          <Route exact path="/skills" element={<Skills />} />
-          <Route exact path="/contact" element={<ContactMe />} />
-          <Route exact path="/projects" element={<Projects />} />
-        </Routes>
-      </Router>
-
+    <Router>
+      <Routes>
+        <Route exact path="" element={<HomePage />} />
+      </Routes>
+    </Router>
   );
 }
 

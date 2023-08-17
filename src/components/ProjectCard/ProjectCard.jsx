@@ -5,7 +5,7 @@ const ProjectCard = ({ imageUrl, title, technologies, liveDemoLink, repositoryLi
         <div className='flex justify-around'>
 
         <div className="bg-white shadow-lg p-6 rounded-lg flex flex-col w-full  mx-4">
-            <img src={imageUrl} alt={`Project ${title}`} className="w-full h-52 object-fit rounded-md mb-8" />
+                <img src={imageUrl} alt={`Project ${title}`} className="w-full h-52 object-fit rounded-md mb-8" style={{ objectFit: 'cover', objectPosition: 'center' }} />
             <h2 className="text-lg font-semibold mb-2 text-secondary-color">{title}</h2>
                 <p className='mb-4 text-sm'>{desc}</p>
             <p className="text-gray-600 mb-4">

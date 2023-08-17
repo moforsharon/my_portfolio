@@ -1,0 +1,48 @@
+/* styles.css (or your Tailwind CSS configuration file) */
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.fade-in {
+    animation: fade-in 1s ease-in-out;
+    /* You can adjust the animation duration */
+}
+
+/* Add this to your existing CSS */
+.nav-link {
+    position: relative;
+    transition: border-bottom 0.3s ease-in-out;
+}
+
+.nav-link.active {
+    border-bottom: 2px solid white;
+}
+
+/*  Add animation to the border-bottom */
+@keyframes borderBottomAnimation {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    animation: borderBottomAnimation 0.3s ease-in-out forwards;
+}
