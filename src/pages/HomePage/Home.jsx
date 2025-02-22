@@ -171,7 +171,7 @@ const HomePage = () => {
 
                         {/* Hire Me Button */}
                         <button className="bg-green-600 rounded-md py-2 px-4 text-sm text-white">
-                            <a href="#contact" onClick={() => scrollToSection('contact')}>Hire Me</a>
+                            <a href="#contact" onClick={() => scrollToSection('contact')}>Reach out</a>
                         </button>
                     </div>
                 </div>
