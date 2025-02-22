@@ -7,6 +7,14 @@ import Footer from '../../components/Footer/Footer';
 const Projects = () => {
     const projects = [
         {
+            imageUrl: require('../../images/ai-prodj.png'),
+            title: 'AI Document Analyst',
+            desc: "Intelligent document companion that summarizes, analyzes, and explains PDF content in a conversational interface.",
+            technologies: ['Next JS', 'CSS', 'Tailwindcss', 'Python'],
+            liveDemoLink: 'https://pdf-ai-frontend-three.vercel.app/',
+            repositoryLink: 'https://github.com/AI-planet-Project'
+        },
+        {
             imageUrl: require('../../images/recipe.png'),
             title: 'Recipe Finder',
             desc: "This is a web app built with React + redux for getting recipes to a wide range of meals. Check it out!",

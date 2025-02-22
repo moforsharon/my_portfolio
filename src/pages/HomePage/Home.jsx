@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import heroImage from '../../images/IMG_2107.jpg';
+import heroImage from '../../images/dp.jpeg';
 import Navbar from '../../components/NavBar/Navbar';
 import { FaFileDownload } from 'react-icons/fa';
 import { FaTwitter, FaGithub, FaLinkedin } from 'react-icons/fa';
@@ -19,6 +19,14 @@ const HomePage = () => {
     const [activeSection, setActiveSection] = useState(null);
 
     const projects = [
+        {
+            imageUrl: require('../../images/ai-prodj.png'),
+            title: 'AI Document Analyst',
+            desc: "Intelligent document companion that summarizes, analyzes, and explains PDF content in a conversational interface.",
+            technologies: ['Next JS', 'CSS', 'Tailwindcss', 'Python'],
+            liveDemoLink: 'https://pdf-ai-frontend-three.vercel.app/',
+            repositoryLink: 'https://github.com/AI-planet-Project'
+        },
         {
             imageUrl: require('../../images/recipe.png'),
             title: 'Recipe Finder',

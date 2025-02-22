@@ -13,7 +13,7 @@ const Footer = () => {
                 <a href="https://www.linkedin.com/in/sharon-mofor-183a71217/"><FaLinkedin className="social-icon" /></a>
                 <a href="https://web.facebook.com/profile.php?id=100084454255858"><FaFacebook className="text-primary-content" /></a>
             </div>
-            <p className=" text-sm text-center">© 2023 All rights reserved</p>
+            <p className=" text-sm text-center">© 2025 All rights reserved</p>
             <p className="text-center  text-sm">Sha🎉</p>
         </footer>
     );
